@@ -3,94 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>パスワードページ</title>
+  <title>Password Protected Page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #333;
-      color: white;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-    .zen-kaku-gothic-new-medium {
-      font-family: "Zen Kaku Gothic New", sans-serif;
-      font-weight: 500;
-      font-style: normal;
-    }
-    .zen-kaku-gothic-new-black {
-      font-family: "Zen Kaku Gothic New", sans-serif;
-      font-weight: 900;
-      font-style: normal;
-    }
-    .container {
-      text-align: center;
-    }
-    .locked-icon {
-      font-size: 50px;
-      color: red;
-    }
-    .locked-text {
-      font-size: 72px;
-      color: red;
-      margin: 20px 0;
-    }
-    input[type="text"] {
-      padding: 10px;
-      font-size: 18px;
-      margin-top: 20px;
-      width: 80%;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      font-weight: 500;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin-top: 20px;
-      background-color: red;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      font-weight: 500;
-    }
-    .error-message {
-      color: red;
-      margin-top: 10px;
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <div class="locked-icon zen-kaku-gothic-new-black">🔒</div>
-    <h1 class="locked-text zen-kaku-gothic-new-black">LOCKED</h1>
-    <p class="zen-kaku-gothic-new-medium">Please enter the answer to Q1.<br>Q1の問題の答えを入力してください</p>
-    <input type="text" id="password" placeholder="Answer Q1">
-    <button onclick="checkPassword()">Submit</button>
-    <div id="error-message" class="zen-kaku-gothic-new-medium error-message">パスワードが違います</div>
+    <div class="lock-icon">
+      <img src="lock-icon.svg" alt="Lock Icon" class="lock-icon-img">
+    </div>
+    <h1 class="locked zen-kaku-gothic-new-black">LOCKED</h1>
+    <p class="instruction zen-kaku-gothic-new-medium">Please enter the answer to Q1.<br>Q1の問題の答えを入力してください</p>
+    <input type="pass" id="password" class="input-field zen-kaku-gothic-new-medium" placeholder="Answer Q1">
+    <button onclick="checkPassword()" class="submit-button zen-kaku-gothic-new-medium">Submit</button>
+    <p id="message" class="message zen-kaku-gothic-new-medium"></p>
   </div>
-
-  <script>
-    function checkPassword() {
-      const correctPassword = 'your_password'; // ここに正しいパスワードを設定してください
-      const inputPassword = document.getElementById('password').value;
-      const errorMessage = document.getElementById('error-message');
-
-      if (inputPassword === correctPassword) {
-        errorMessage.style.display = 'none';
-        alert('正しいパスワードです！');
-        // 次のページにリダイレクトするコードをここに追加できます
-      } else {
-        errorMessage.style.display = 'block';
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
